@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"time"
 )
 
 func PopulateRandomValues(size int) [][]int {
@@ -12,6 +13,7 @@ func PopulateRandomValues(size int) [][]int {
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
 			var random int
+			go rand.Seed(time.Now().UnixNano())
 			random = 0 - rand.Intn(1-0+1)
 			m[i] = append(m[i], random)
 		}
@@ -128,18 +130,6 @@ func Final(matrix [][]int) [][]int {
 	}
 	return ClearUnits(m)
 }
-
-//func PrintFinal(matrix [][]int) {
-//	var symbol = []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"}
-//	for i := 0; i < len(matrix); i++ {
-//		for j := 0; j < len(matrix); j++ {
-//			if matrix[i][j] == 1 {
-//				fmt.Printf("k%d-%s", i+1, symbol[j])
-//				fmt.Println("")
-//			}
-//		}
-//	}
-//}
 
 func PrintFinal(matrix [][]int) {
 	var symbol = []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"}
