@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
@@ -18,6 +19,7 @@ func main() {
 	fmt.Println("Выберите вид ввода\n1: Рандом\n2: Вручную")
 	fmt.Scanln(&input)
 	m := FillMatrix(input, size)
+	start := time.Now()
 	fmt.Println("Наша матрица")
 	matrix := m
 	PrintMatrix(m)
@@ -29,5 +31,7 @@ func main() {
 	PrintMatrix(Final(m))
 	fmt.Println("---------------")
 	PrintFinal(Final(m))
-
+	duration := time.Since(start)
+	fmt.Println("----------------")
+	fmt.Println("Время работы программы - ", duration)
 }
